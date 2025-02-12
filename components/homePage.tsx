@@ -1,0 +1,47 @@
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import CityTab from '../components/citiesPage';
+
+
+const Tab = createBottomTabNavigator();
+
+export default function HomeScreen() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Calgary">
+        {() =>
+          <CityTab
+            city="Calgary"
+            link="https://www.calgary.ca/home.html"
+            info="Calgary is known for its beautiful parks and the Calgary Stampede."
+            image={require("../assets/calgary.jpg")}
+          />
+        }
+      </Tab.Screen>
+      <Tab.Screen name="Edmonton">
+        {() => 
+          <CityTab
+            city="Edmonton"
+            link="https://www.edmonton.ca/"
+            info="Edmonton is famous for its large mall and vibrant arts scene."
+            image={require("../assets/Edmonton.jpg")}
+          />
+        }
+      </Tab.Screen>
+    </Tab.Navigator>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 24,
+    textAlign: 'center',
+    marginVertical: 20,
+  },
+});
