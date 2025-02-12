@@ -41,6 +41,6 @@ export default function SignInScreen({ navigation }: { navigation: NavigationPro
 
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center', padding: 20 },
-  title: { fontSize: 24, marginBottom: 20, textAlign: 'center' },
+  title: { fontSize: 24, marginBottom: 20, textAlign: 'center', textDecorationColor: 'white' },
   input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 10 }
 });

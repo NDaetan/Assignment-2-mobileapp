@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet, Linking,Image } from 'react-native';
+import { View, Text, Button, StyleSheet, Linking, Image } from 'react-native';
 
 interface CityTabProps {
   city: string;
@@ -21,8 +21,8 @@ export default function CityTab({ city, link, info, image }: CityTabProps) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20, },
   cityTitle: { fontSize: 20, marginBottom: 10 },
-  infoText: { marginTop: 10, fontSize: 16, color: '#333' },
+  infoText: { marginTop: 10, fontSize: 16, color: '#333', },
   cityImage: { width: 400, height: 300, marginBottom: 20, textAlign: 'center' } // Add styles for the image
 });

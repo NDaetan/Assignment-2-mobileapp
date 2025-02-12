@@ -8,7 +8,7 @@ const Tab = createBottomTabNavigator();
 
 export default function HomeScreen() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{ tabBarStyle: styles.container }}>
       <Tab.Screen name="Calgary">
         {() =>
           <CityTab
@@ -20,7 +20,7 @@ export default function HomeScreen() {
         }
       </Tab.Screen>
       <Tab.Screen name="Edmonton">
-        {() => 
+        {() =>
           <CityTab
             city="Edmonton"
             link="https://www.edmonton.ca/"
@@ -35,9 +35,9 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'black',
   },
   title: {
     fontSize: 24,
