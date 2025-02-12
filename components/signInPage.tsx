@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import credentials from "../credentials.json";
-
 import { NavigationProp } from '@react-navigation/native';
 
 export default function SignInScreen({ navigation }: { navigation: NavigationProp<any> }) {
@@ -32,15 +31,63 @@ export default function SignInScreen({ navigation }: { navigation: NavigationPro
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Sign In</Text>
-      <TextInput placeholder="Username" style={styles.input} onChangeText={setUsername} value={username} />
-      <TextInput placeholder="Password" style={styles.input} onChangeText={setPassword} value={password} secureTextEntry />
-      <Button title="Sign In" onPress={validateInput} />
+      <TextInput
+        placeholder="Username"
+        style={styles.input}
+        onChangeText={setUsername}
+        value={username}
+      />
+      <TextInput
+        placeholder="Password"
+        style={styles.input}
+        onChangeText={setPassword}
+        value={password}
+        secureTextEntry
+      />
+      <TouchableOpacity style={styles.button} onPress={validateInput}>
+        <Text style={styles.buttonText}>Sign In</Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', padding: 20 },
-  title: { fontSize: 24, marginBottom: 20, textAlign: 'center' },
-  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 10 }
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    padding: 10,
+    marginBottom: 10,
+    borderRadius: 5,
+  },
+  button: {
+    backgroundColor: '#0056D2',   // Background color
+    borderWidth: 3,            // Border thickness
+    borderColor: '#0056D2',       // Border color
+    paddingVertical: 10,       // Adjust vertical padding for height
+    paddingHorizontal: 20,     // Less horizontal padding for a tighter border
+    borderRadius: 8,           // Rounded corners
+    alignItems: 'center',      // Center the text
+    justifyContent: 'center',
+    shadowColor: '#000',       // Shadow for elevation effect
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,              // Elevation for shadow on Android
+    alignSelf: 'center',       // Center the button itself
+    minWidth: 100,             // Optional: Set a minimum width to ensure a good size
+  },
+  buttonText: {
+    fontSize: 16,
+    color: 'white',
+  },
 });
