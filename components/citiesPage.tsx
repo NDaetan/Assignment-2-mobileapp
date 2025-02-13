@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, Button, StyleSheet, Linking, Image } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 
 interface CityTabProps {
   city: string;
   link: string;
   info: string;
   image: any;
+  setCurrentCity: (city: string) => void;
 }
 
-
-export default function CityTab({ city, link, info, image }: CityTabProps) {
+export default function CityTab({ city, link, info, image, setCurrentCity }: CityTabProps) {
+  useFocusEffect(
+    React.useCallback(() => {
+      setCurrentCity(city);
+    }, [city])
+  );
   return (
     <View style={styles.container}>
       <Image source={image} style={styles.cityImage} />
